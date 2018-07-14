@@ -108,7 +108,8 @@ if (isset($proxy) && $proxy) {
 } else {
     $cmd_proxy = '';
 }
-$cmd = 'ffmpeg ' . $cmd_proxy . ' -i "' . $qualities[$input]['url'] . '" -c:v copy -c:a copy -y "' . $video_file . '"';
+$cmd = 'ffmpeg ' . $cmd_proxy . ' -i "' . $qualities[$input]['url'] . '" -c:v copy -c:a copy -y -bsf:a aac_adtstoasc "' . $video_file . '"';
+echo $cmd."\n";
 $log_file = $base_path . $file_name . '.log';
 $info_file = $base_path . $file_name . '.info';
 $cover_file = $base_path . $file_name . '.jpg';
